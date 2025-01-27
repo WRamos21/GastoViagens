@@ -5,9 +5,80 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/edit_distance"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/distancia"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:text="@string/total_de_quilometros" />
+
+    <EditText
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/preco"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:text="@string/preco_por_litro" />
+
+    <EditText
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/autonomia"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:text="@string/kms_por_litro" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/gasto_total"
+        android:textAllCaps="true"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/valor_total"
+        android:textAllCaps="true"
+        android:textColor="@color/green"
+        android:textSize="38sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/green"
+        android:padding="16dp"
+        android:text="@string/calcular"
+        android:textAllCaps="true"
+        android:textSize="20sp" />
 
 </LinearLayout>
