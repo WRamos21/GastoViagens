@@ -51,25 +51,45 @@ fora de onCreate para poder acessa-la fora do escopo desta função
         binding.buttonCalculate.setOnClickListener(this)
     }
 
-        /* [2.2] Adicionando evento de click ao botão
-    Qualquer botão que for pressionado cairá neste override, portanto é necessário identificar
-    qual foi o botão. Aqui R significa resource que é uma classe do proprio android onde tem todos os
-    elementos com id ou colors
-    continua [2.3]
-     */
+    /* [2.2] Adicionando evento de click ao botão
+Qualquer botão que for pressionado cairá neste override, portanto é necessário identificar
+qual foi o botão. Aqui R significa resource que é uma classe do proprio android onde tem todos os
+elementos com id ou colors
+continua [2.3]
+ */
     override fun onClick(view: View) {
-        if (view.id == R.id.button_calculate){
+        if (view.id == R.id.button_calculate) {
             calculate()
         }
     }
 
+    /* [4.0] Validação de dados */
+    private fun isValid(): Boolean {
+        return (binding.editDistance.text.toString() != ""
+                && binding.editPrice.text.toString() != ""
+                && binding.editAutonomy.text.toString() != ""
+                && binding.editAutonomy.text.toString().toFloat() != 0f)
+    }
 
-        /* [2.3] Adicionando evento de click ao botão
-    Toast.makeTextt é usado para exibir mensagens curtas e temporárias recebe o parametro
-    context: O contexto da aplicação (geralmente this ou applicationContext), quem guarda informações
-    da aplicação.
+
+    /* [2.3] Adicionando evento de click ao botão
+Toast.makeTextt é usado para exibir mensagens curtas e temporárias recebe o parametro
+context: O contexto da aplicação (geralmente this ou applicationContext), quem guarda informações
+da aplicação.
+    [3.0] Adicionando a lógica de calculo
+Para resgatar o valor de um editText utilizamos .text.toString
      */
     private fun calculate() {
-        Toast.makeText(this, "Fui Clicado", Toast.LENGTH_SHORT).show()
+        if (isValid()) {
+            val distance = binding.editDistance.text.toString().toFloat()
+            val price = binding.editPrice.text.toString().toFloat()
+            val autonomy = binding.editAutonomy.text.toString().toFloat()
+
+            val totalValue = (distance * price) / autonomy
+            val totalValueStr = "R$ ${"%.2f".format(totalValue)}"
+            binding.textTotalValue.text = totalValueStr
+        } else {
+            Toast.makeText(this, R.string.validation_fill_all_fields, Toast.LENGTH_SHORT).show()
+        }
     }
 }
